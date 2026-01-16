@@ -1,8 +1,4 @@
-import React from "react";
-import axios from "axios";
-import type { ICharacter } from "../types/Types";
-import { useQuery } from "react-query";
-import useCharacters from "../hooks/UseCharacters";
+import useCharacters from "../hooks/useCharacters";
 import CharacterInfo from "../components/CharacterInfo";
 
 const Home = () => {

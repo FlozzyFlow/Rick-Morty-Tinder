@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import type { ICharacter } from "../types/Types";
 
 interface Props {
@@ -9,9 +9,7 @@ const CharacterInfo = ({ character }: Props) => {
     <div>
       <h1>{character.name}</h1>
       <img src={character.image}></img>
-      <p>{character.gender}</p>
-      <p>{character.status}</p>
-      <p>{character.species}</p>
+      <Link to={`/characters/${character.id}`}>About</Link>
     </div>
   );
 };
