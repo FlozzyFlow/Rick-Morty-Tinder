@@ -1,0 +1,14 @@
+@use "./variables" as *;
+
+* {
+  font-family: $poppins;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
