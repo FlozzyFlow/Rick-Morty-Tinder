@@ -25,7 +25,7 @@ const CharacterInfo = ({ character, isFull, index = 0 }: Props) => {
       transition: {
         duration: 0.5,
         delay: index * 0.1,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 12
       }

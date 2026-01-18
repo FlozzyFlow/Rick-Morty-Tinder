@@ -1,6 +1,5 @@
-import React from "react";
 import s from "./Character.module.scss";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useCharacter from "../hooks/useCharacter";
 import CharacterInfo from "../components/CharacterInfo";
 import Skeleton from "../components/Skeleton";
