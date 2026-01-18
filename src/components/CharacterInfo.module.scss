@@ -1,0 +1,68 @@
+@use "../styles/variables" as *;
+
+.characterCard {
+  width: 300px;
+  min-height: 400px;
+  background: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border-color: $accent;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: $border-color;
+}
+
+.name {
+  color: $text-primary;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+.text {
+  color: $text-secondary;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.link {
+  display: inline-block;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid $accent;
+  border-radius: 12px;
+  color: $text-primary;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin-top: auto;
+
+  &:hover {
+    background: $accent;
+    border-color: $accent;
+    color: $text-primary;
+  }
+}

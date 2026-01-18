@@ -1,15 +1,17 @@
 import axios from "axios";
 import type { ICharacter } from "../types/Types";
 
-export const getCharacters = async (): Promise<ICharacter[]> => {
+export const getCharacterByName = async (
+  name: string
+): Promise<ICharacter[]> => {
   try {
     const res = await axios.get<{ results: ICharacter[] }>(
-      "https://rickandmortyapi.com/api/character"
+      `https://rickandmortyapi.com/api/character/?name=${name}`
     );
 
     // В axios данные лежат в res.data.
     // У Рика и Морти массив персонажей лежит в res.data.results
-    if (!res.data || !res.data.results) {
+    if (!res.data) {
       throw new Error("no data");
     }
 
