@@ -5,10 +5,15 @@
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 30px;
   padding: 40px 20px;
+
+  @media (max-width: 768px) {
+    padding: 30px 16px;
+    gap: 24px;
+  }
 }
 
 .content {
@@ -16,6 +21,56 @@
   justify-content: center;
   align-items: center;
   min-height: 400px;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+.searchList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.search {
+  width: 100%;
+  max-width: 500px;
+  color: $text-primary;
+  font-size: 18px;
+  background: $card-bg;
+  border: 1px solid $border-color;
+  padding: 12px 20px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $accent;
+    box-shadow: 0 0 0 3px rgba(82, 82, 82, 0.1);
+  }
+
+  &::placeholder {
+    color: $text-secondary;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
 }
 
 .buttons {
@@ -23,32 +78,68 @@
   gap: 15px;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    gap: 12px;
+    width: 100%;
+  }
 }
-.search {
-  color: $text-primary;
-  font-size: 18px;
-  border: $text-secondary 1px solid;
-  padding: 3px 15px;
-  border-radius: 8px;
-}
+
 button {
   background: transparent;
   border: 1px solid $accent;
   color: $text-primary;
-  padding: 12px 24px;
+  padding: 12px 28px;
   border-radius: 12px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
   transition: all 0.2s ease;
+  min-width: 100px;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: $accent;
     border-color: $accent;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 
-  &:active {
+  &:active:not(:disabled) {
     transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 80px;
+    flex: 1;
+  }
+}
+
+.error {
+  background: $card-bg;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  max-width: 500px;
+
+  h1 {
+    color: #f44336;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: 16px;
+    margin: 0;
   }
 }

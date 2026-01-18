@@ -12,13 +12,19 @@ export const getCharacterByName = async (
     // В axios данные лежат в res.data.
     // У Рика и Морти массив персонажей лежит в res.data.results
     if (!res.data) {
-      throw new Error("no data");
+      return [];
     }
 
-    return res.data.results;
-  } catch (e) {
+    // Если results отсутствует или пустой массив, возвращаем пустой массив
+    return res.data.results || [];
+  } catch (e: any) {
+    // Если это ошибка 404 (персонаж не найден), возвращаем пустой массив
+    if (e.response?.status === 404) {
+      return [];
+    }
+    
     console.error(e);
-    // Пробрасываем ошибку, чтобы Promise стал rejected
+    // Для других ошибок пробрасываем ошибку
     throw e;
   }
 };
